@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 /**
  * @author Marcos Gutierrez 			17909
  * @author Raul Monzon					17014
- * @since 26 de enero 2018
+ * @since 16 de febrero 2018
  */
 public class Main_Prueba {
 	public static void main(String[] args) {
