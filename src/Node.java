@@ -8,6 +8,7 @@ public class Node<E>{
 	protected E datos;
 	/*Referencia al nodo*/
 	protected Node<E> nextElement;
+	
 	/**
 	 * Constructor de la clase Node
 	 * @param v
