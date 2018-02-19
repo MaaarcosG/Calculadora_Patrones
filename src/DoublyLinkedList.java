@@ -11,16 +11,29 @@ public class DoublyLinkedList<E> extends AbstractList<E>{
 	protected DoublyLinkedNode<E> head;
 	protected DoublyLinkedNode<E> tails;
 	
+	/*Constructor de la clase*/
+	public DoublyLinkedList() {
+		count = 0;
+		head = null;
+		tails = null;
+	}
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return count;
 	}
-
+	/**
+	 * Agrega el primer dato de el linked 
+	 * @param value
+	 */
 	@Override
 	public void addFirst(E value) {
 		// TODO Auto-generated method stub
-		
+		head = new DoublyLinkedNode<E>(value,head,null);
+		if(tails.equals(head)) {
+			tails = head;
+			count++;
+		}
 	}
 
 	@Override
@@ -28,11 +41,18 @@ public class DoublyLinkedList<E> extends AbstractList<E>{
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * Agregra el ultimo dato de el linked
+	 * @param value
+	 */
 	@Override
 	public void addLast(E value) {
 		// TODO Auto-generated method stub
-		
+		tails = new DoublyLinkedNode<E>(value,null,tails);
+		if(head.equals(null)) {
+			head = tails;
+			count++;
+		}
 	}
 
 	@Override
@@ -52,11 +72,22 @@ public class DoublyLinkedList<E> extends AbstractList<E>{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	/**
+	 * Remueva el ultimo dato de el linked
+	 * @return el valor actual del nodo
+	 */
 	@Override
 	public E removeLast() {
 		// TODO Auto-generated method stub
-		return null;
+		DoublyLinkedNode<E> temp = tails;
+		tails = tails.previous();
+		if(tails.equals(null)) {
+			head = null;
+		} else {
+			tails.setNext(null);
+		}
+		count --;
+		return temp.value();
 	}
 
 	@Override
