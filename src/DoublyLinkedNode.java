@@ -2,7 +2,7 @@
  * @author Marcos Gutierrez 			17909
  * @author Raul Monzon					17014
  * @since 19 de febrero 2018
- * referenceshttp://www.java2novice.com/data-structures-in-java/linked-list/doubly-linked-list/
+ * references http://www.java2novice.com/data-structures-in-java/linked-list/doubly-linked-list/
  */
 public class DoublyLinkedNode<E> {
 	/*Atributos de la clase*/

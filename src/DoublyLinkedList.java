@@ -4,6 +4,7 @@ import java.util.Iterator;
  * @author Marcos Gutierrez 			17909
  * @author Raul Monzon					17014
  * @since 19 de febrero 2018
+ * references, referenceshttp://www.java2novice.com/data-structures-in-java/linked-list/doubly-linked-list/
  */
 public class DoublyLinkedList<E> extends AbstractList<E>{
 	/*Atributo de la clase*/
