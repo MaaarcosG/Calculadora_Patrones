@@ -6,7 +6,7 @@
 public class StackFactory {
 	public static Stack creandoStack(String opcion) {
 		Stack stack = null;
-		if(opcion.toLowerCase().equals("ArrayList")) {
+		if(opcion.toLowerCase().equals("StackArrayList")) {
 			stack = new StackArrayList();
 		} else if(opcion.toLowerCase().equals("StackVector")) {
 			stack = new StackVector();

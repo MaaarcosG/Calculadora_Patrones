@@ -1,8 +1,4 @@
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
@@ -11,8 +7,37 @@ import java.util.Scanner;
  * @since 19 de febrero 2018
  */
 public class MainCalculadora {
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		Scanner teclado = new Scanner(System.in);
+		String linea = "";
+		/*Abrimos el archivo de texto*/
+		try {
+			
+			/*Abrimos el archivo de texto*/
+			FileInputStream archivo = new FileInputStream("datos.txt");
+			/*Objeto de entrada*/
+			DataInputStream entrada = new DataInputStream(archivo);
+			/*Buffer, que servira para lectura*/
+			BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
+			/*Leer archivo*/
+			
+			/*Condicion para verificar si esta lleno o no*/
+			if ((linea=buffer.readLine()) != null) {
+				System.out.println("El archivo de texto es: ");
+				System.out.println(linea.replace(" ", " "));
+				System.out.println("-----------------");
+			}
+			else {
+				/*Si esta vacio se manda el mensaje*/
+				System.err.println("El .txt esta vacio");
+			}
+			entrada.close(); 
+		}
+		catch (Exception e) {
+			/*Mensaje de error*/
+			System.err.println("Ocurrio un error " + e.getMessage());
+		}
+		
 		/*Despliega menu para escoger*/
 		System.out.println("Bienvenido");
 		System.out.println("-----------------------------------------------------------");
@@ -23,30 +48,15 @@ public class MainCalculadora {
 		System.out.println("4. StackListCircular");
 		/*Para escoger el menu*/
 		String opcion = teclado.nextLine();
-		Calculos.getInstance(opcion);
-		
-		/*Datos del archivo de texto*/
-		String path = "src/datos.txt";
-		List<String> lineas = leerArchivo(path);
-		if(lineas == null) {
+		//StackFactory.creandoStack(opcion);
+		if(linea == null) {
 			/*Si esta vacio se manda el mensaje*/
 			System.err.println("El .txt esta vacio");
 		}
 		/*Ciclo para recorrer el archivo*/
-		String linea = "";
+		String lineas = "";
 		for(int i=0; i < linea.length(); i++) {
-			System.out.println("El resultado es: " + linea + Calculos.getInstance(opcion).calcular(linea));
+			System.out.println("El resultado es: " + linea + "" + Calculos.instance.calcular(linea));
 		}
-	}
-	public static List<String> leerArchivo(String path){
-		try {
-			return (List<String>) Files.readAllLines(Paths.get(path), Charset.defaultCharset());
-		
-		} 
-		catch (Exception e) {
-			/*Mensaje de error*/
-			System.err.println("Ocurrio un error " + e.getMessage());
-		}
-		return null;
 	}
 }

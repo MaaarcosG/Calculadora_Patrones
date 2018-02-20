@@ -5,8 +5,8 @@
  */
 public class Calculos implements CalculadoraI {
 	/*Objeto de la misma clase, instanciado*/
-	private static Calculos instance;
-	private static Stack<Integer> dato = new StackArrayList<Integer>();
+	static Calculos instance;
+	//private static Stack<Integer> dato = new StackArrayList<Integer>();
 	private Stack<Float> stack;
 	
 	/**
@@ -14,52 +14,52 @@ public class Calculos implements CalculadoraI {
 	 */
 	@Override
 	public String calcular(String linea) {
-		int num2=0;
-		int num1=0;
+		Float num2=(float) 0;
+		Float num1=(float) 0;
 		int resultado=0;
 		for(int i=0; i < linea.length(); i++) {
 			
 			/*Si encuentra u nsigno "+", se añadara un dato utilizando pop y se la operacion 
 			 * se guardara en el atributo resultado utilizando push*/
 			if(linea.charAt(i) == '+') {
-				num1 = dato.pop();
-				num2 = dato.pop();
-				resultado = num1 + num2;
-				dato.push(resultado);
+				num1 = stack.pop();
+				num2 = stack.pop();
+				resultado = (int) (num1 + num2);
+				stack.push((float) resultado);
 			} 
 			
 			/*Si encuentra u nsigno "-", se añadara un dato utilizando pop y se la operacion 
 			 * se guardara en el atributo resultado utilizando push*/	
 			if(linea.charAt(i) == '-') {
-				num1 = dato.pop();
-				num2 = dato.pop();
-				resultado = num2 - num1;
-				dato.push(resultado);
+				num1 = stack.pop();
+				num2 = stack.pop();
+				resultado = (int) (num2 - num1);
+				stack.push((float) resultado);
 			}
 			
 			/*Si encuentra u nsigno "*", se añadara un dato utilizando pop y se la operacion 
 			 * se guardara en el atributo resultado utilizando push*/	
 			if(linea.charAt(i) == '*') {
-				num1 = dato.pop();
-				num2 = dato.pop();
-				resultado = num1 * num2;
-				dato.push(resultado);
+				num1 = stack.pop();
+				num2 = stack.pop();
+				resultado = (int) (num1 * num2);
+				stack.push((float) resultado);
 			}
 
 			/*Si encuentra u nsigno "/", se añadara un dato utilizando pop y se la operacion 
 			 * se guardara en el atributo resultado utilizando push*/	
 			if(linea.charAt(i) == '/') {
-				num1 = dato.pop();
-				num2 = dato.pop();
-				resultado = num2 / num1;
-				dato.push(resultado);
+				num1 = stack.pop();
+				num2 = stack.pop();
+				resultado = (int) (num2 / num1);
+				stack.push((float) resultado);
 			}
 			
 			/*Si el resultado es menor o igual a 0, se añadira un valor numerico a la cadena
 			 * para asi tener un dato integer dentro del resultado, y no devolvera un error*/
 			if (Character.getNumericValue(linea.charAt(i)) >= 0) {
 				int datos = Character.getNumericValue(linea.charAt(i));
-				dato.push(datos);
+				stack.push((float) datos);
 			}
 		}
 		
