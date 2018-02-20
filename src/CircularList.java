@@ -153,5 +153,15 @@ public class CircularList<E> extends AbstractList<E> {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean contains(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

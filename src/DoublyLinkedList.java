@@ -156,5 +156,10 @@ public class DoublyLinkedList<E> extends AbstractList<E>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public boolean contains(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

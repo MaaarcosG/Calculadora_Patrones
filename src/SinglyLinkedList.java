@@ -162,5 +162,10 @@ public class SinglyLinkedList<E> extends AbstractList<E> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }
